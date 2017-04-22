@@ -1,14 +1,65 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-    <ui:composition template="/layout.xhtml">
-        <ui:define name="content">
-            <div class="commerzfree-template">
-                <h1>Sobre</h1>
+<ui:composition template="/layout.xhtml">
+    <ui:define name="content">
+        <div class="paschua-project">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h:outputLabel value="Descrição:"/>
+                            <h:inputText styleClass="form-control"
+                                         value="#{produtoController.produto.descricao}"></h:inputText>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h:outputLabel value="Valor:"/>
+                            <h:inputText styleClass="form-control"
+                                         value="#{produtoController.produto.valor}"></h:inputText>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <br/>
+                            <h:commandButton styleClass="btn btn-success" value="Enviar"
+                                             action="#{produtoController.save}"></h:commandButton>
+                            <br/>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="panel panel-default">
+                        <div class="panel panel-heading">
+                            Listagem
+                        </div>
+                        <div class="panel panel-body">
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Descrição</th>
+                                    <th>Valor</th>
+                                </tr>
+                                </thead>
+                                <ui:repeat var="o" value="#{produtoController.produtos}">
+                                    <tr>
+                                        <td>#{o.id}</td>
+                                        <td>#{o.descricao}</td>
+                                        <td>#{o.valor}</td>
+                                    </tr>
+                                </ui:repeat>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </ui:define>
-    </ui:composition>
+        </div>
+    </ui:define>
+</ui:composition>
 </html>
 

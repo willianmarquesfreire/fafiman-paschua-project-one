@@ -1,14 +1,53 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-    <ui:composition template="/layout.xhtml">
-        <ui:define name="content">
-            <div class="commerzfree-template">
-                <h1>Sobre</h1>
+<ui:composition template="/layout.xhtml">
+    <ui:define name="content">
+        <div class="paschua-project">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h:outputLabel value="ID do produto:"/>
+                    <h:inputText styleClass="form-control"
+                                 value="#{estoqueController.estoque.produto.id}"></h:inputText>
+                </div>
+                <div class="col-lg-6">
+                    <h:outputLabel value="Quantidade:"/>
+                    <h:inputText styleClass="form-control"
+                                 value="#{estoqueController.estoque.quantidade}"></h:inputText>
+                </div>
             </div>
-        </ui:define>
-    </ui:composition>
+            <div class="row">
+                <div class="col-lg-12">
+                    <br/>
+                    <h:commandButton styleClass="btn btn-success" value="Enviar"
+                                     action="#{estoqueController.save}"></h:commandButton>
+                    <br/>
+                </div>
+            </div>
+            <div class="row">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Produto</th>
+                        <th>Quantidade</th>
+                    </tr>
+                    </thead>
+                    <ui:repeat var="a" value="#{estoqueController.estoques}">
+                        <tr>
+                            <td>#{a.id}</td>
+                            <td>#{a.produto.descricao}</td>
+                            <td>#{a.quantidade}</td>
+                        </tr>
+                    </ui:repeat>
+                </table>
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>
 </html>
 

@@ -5,8 +5,45 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <ui:composition template="/layout.xhtml">
         <ui:define name="content">
-            <div class="commerzfree-template">
-                <h1>Sobre</h1>
+            <div class="paschua-project">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h:outputLabel value="ID do Estoque:"/>
+                        <h:inputText styleClass="form-control"
+                                     value="#{vendaController.venda.estoque.id}"></h:inputText>
+                    </div>
+                    <div class="col-lg-6">
+                        <h:outputLabel value="Quantidade:"/>
+                        <h:inputText styleClass="form-control"
+                                     value="#{vendaController.venda.quantidade}"></h:inputText>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <br/>
+                        <h:commandButton styleClass="btn btn-success" value="Enviar"
+                                         action="#{vendaController.save}"></h:commandButton>
+                        <br/>
+                    </div>
+                </div>
+                <div class="row">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Produto</th>
+                            <th>Quantidade</th>
+                        </tr>
+                        </thead>
+                        <ui:repeat var="a" value="#{vendaController.vendas}">
+                            <tr>
+                                <td>#{a.id}</td>
+                                <td>#{a.estoque.produto.descricao}</td>
+                                <td>#{a.quantidade}</td>
+                            </tr>
+                        </ui:repeat>
+                    </table>
+                </div>
             </div>
         </ui:define>
     </ui:composition>
