@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="PaschuaProjectOne:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="PaschuaProjectOne-1.0.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="PaschuaProjectOne:war exploded" />
+    </root>
+  </artifact>
+</component>

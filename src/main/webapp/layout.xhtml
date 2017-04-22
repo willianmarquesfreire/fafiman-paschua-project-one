@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>
+            <ui:insert name="title">
+                Paschua Project One
+            </ui:insert>
+        </title>
+        <h:outputStylesheet name="css/bootstrap.min.css" />
+        <h:outputStylesheet name="css/theme.css" />
+        <h:outputStylesheet name="css/paschuaproject.css" />
+        <h:outputScript name="js/jquery.min.js" />
+        <h:outputScript name="js/bootstrap.min.js" />
+    </h:head>
+    <h:body>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/commerzfree/index.xhtml">WmfSystem</a>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                    <h:form id="linksFrm">
+                        <ul class="nav navbar-nav">
+                            <li><h:commandLink action="/index.xhtml?faces-redirect=true">Início</h:commandLink></li>
+                            <li><h:commandLink action="/public/produto.xhtml">Produto</h:commandLink></li>
+                            <li><h:commandLink action="/public/venda.xhtml">Venda</h:commandLink></li>
+                            <li><h:commandLink action="/public/estoque.xhtml">Estoque</h:commandLink></li>
+                            <li><h:commandLink action="/public/about.xhtml">Sobre</h:commandLink></li>
+                            <li><h:commandLink action="/public/contact.xhtml">Contato</h:commandLink></li>
+                        </ul>
+                    </h:form>
+                </div><!--/.nav-collapse -->
+            </div>
+        </nav>
+        <div class="container">
+            <h:form id="formulario">
+                <ui:insert name="content" />
+            </h:form>
+        </div><!-- /.container -->
+    </h:body>
+</html>
+
